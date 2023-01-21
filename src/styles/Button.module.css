@@ -17,10 +17,17 @@
 
 .Button:hover:active {
     background-color: white !important;
-    color: #314F28;
-    border: #314F28 solid 2px;
+    color: #314F28 !important;
     cursor: pointer;
+    border: #314F28 solid 3px !important;
+    box-shadow: none !important;
 }
+
+.Button:focus {
+    background-color: #314F28;
+    box-shadow: none;
+}
+
 
 .Wide {
     padding: 10px 50px;
