@@ -1,0 +1,28 @@
+.Button {
+    background-color: #314F28;
+    border-radius: 80px;
+    color: white;
+    font-size: 1rem;
+    align-self: center;
+    padding: 2px 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    min-width: 70px;
+    border: none;
+}
+
+.Button:hover {
+    background-color: #5D7736 !important;
+}
+
+.Button:hover:active {
+    background-color: white !important;
+    color: #314F28;
+    border: #314F28 solid 2px;
+    cursor: pointer;
+}
+
+.Wide {
+    padding: 10px 50px;
+    width: 100%;
+}
