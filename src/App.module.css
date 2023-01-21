@@ -5,6 +5,10 @@
     color: #314F28;
 }
 
+.Main {
+    padding-top: 100px;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -17,6 +21,7 @@ a {
 a:hover {
     color: #5D7736 !important;
     transition: color ease-in-out 0.3s;
+    text-decoration: none;
 }
 
 a:hover i {

@@ -8,3 +8,11 @@
     font-size: xx-large;
     color: #314F28 !important;
 }
+
+.NavLink {
+    padding: 5px;
+}
+
+.Active i {
+    color: #5D7736;
+}
