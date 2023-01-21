@@ -2,5 +2,37 @@
     font-family: 'Merriweather Sans', sans-serif;
     background-color: #D2C487;
     min-height: 100vh;
+    color: #314F28;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
     color: #314F28 !important;
+    transition: color ease-in-out 0.3s;
+}
+
+a:hover {
+    color: #5D7736 !important;
+    transition: color ease-in-out 0.3s;
+}
+
+a:hover i {
+    color: #5D7736;
+    transition: color ease-in-out 0.3s;
+}
+
+i {
+    color: #314F28;
+    font-size: 1.6rem;
+    padding: 7px;
+    vertical-align: middle;
+}
+
+i:hover {
+    cursor: pointer;
+    transition: color ease-in-out 0.3s;
+    color: #5D7736;
 }
