@@ -83,3 +83,13 @@ figure {
     max-width: 100%;
     object-fit: contain;
 }
+
+.Input {
+    background: white;
+    box-sizing: border-box;
+    border-radius: 80px;
+    border: #D2C487;
+    color: #314F28;
+    text-align: center;
+    padding: 10px;
+}

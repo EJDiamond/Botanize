@@ -61,7 +61,7 @@ const NavBar = () => {
                 </NavLink>
                 <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ml-auto text-left">
+                    <Nav className="ml-auto text-center">
                         <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">
                             <i className="fa-solid fa-house-chimney"></i> Home
                         </NavLink>
