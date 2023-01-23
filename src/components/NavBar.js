@@ -25,16 +25,16 @@ const NavBar = () => {
     const loggedInIcons =
         <>
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/posts/create">
-                <i class="fa-solid fa-square-plus"></i> Create
+                <i className="fa-solid fa-square-plus"></i> Create
             </NavLink>
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/explore">
-                <i class="fa-solid fa-compass"></i> Explore
+                <i className="fa-solid fa-compass"></i> Explore
             </NavLink>
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/saved">
-                <i class="fa-solid fa-bookmark"></i> Saved
+                <i className="fa-solid fa-bookmark"></i> Saved
             </NavLink>
             <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
-                <i class="fas fa-sign-out-alt"></i> Sign out
+                <i className="fas fa-sign-out-alt"></i> Sign out
             </NavLink>
             <NavLink className={styles.NavLink} to={`/profiles/${currentUser?.profile_id}`}>
                 <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
