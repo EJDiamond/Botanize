@@ -8,7 +8,7 @@ import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 
 import axios from "axios";
-import { useSetCurrentUser } from '../../contexts/CurrentUserContexts';
+import { useSetCurrentUser } from '../../contexts/CurrentUserContext';
 
 const SignInForm = () => {
     const setCurrentUser = useSetCurrentUser();
