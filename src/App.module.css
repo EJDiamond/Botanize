@@ -47,25 +47,6 @@ figure {
     display: inline-block;
 }
 
-/* scrollbar */
-*::-webkit-scrollbar {
-    width: 5px;
-}
-
-*::-webkit-scrollbar-track {
-    background: #EFE9CE;
-}
-
-*::-webkit-scrollbar-thumb {
-    background: #888;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
-
-/* Sign in/up  */
-
 .Content {
     background-color: #EFE9CE;
     padding: 20px;
@@ -92,4 +73,31 @@ figure {
     color: #314F28;
     text-align: center;
     padding: 10px;
+}
+
+.Textarea {
+    background: white;
+    box-sizing: border-box;
+    border-radius: 20px;
+    border: #D2C487;
+    color: #314F28;
+    text-align: center;
+    padding: 10px;
+}
+
+/* scrollbar */
+*::-webkit-scrollbar {
+    width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #EFE9CE;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

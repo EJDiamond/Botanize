@@ -52,11 +52,11 @@ function PostCreateForm() {
         formData.append('question', question)
 
         try {
-            const {data} = await axiosReq.post('/posts/', formData);
+            const { data } = await axiosReq.post('/posts/', formData);
             history.push(`/posts/${data.id}`)
-        } catch (err){
+        } catch (err) {
             console.log(err)
-            if (err.response?.status !== 401){
+            if (err.response?.status !== 401) {
                 setErrors(err.response?.data)
             }
         }
@@ -73,6 +73,7 @@ function PostCreateForm() {
                     placeholder='Plant name'
                     value={plant}
                     onChange={handleChange}
+                    className={appStyles.Input}
                 />
             </Form.Group>
             {errors?.plant?.map((message, idx) => (
@@ -82,7 +83,7 @@ function PostCreateForm() {
             ))}
             <Form.Group>
                 <Form.Label className="d-none">Plant Type</Form.Label>
-                <Form.Control as="select" name="plant_type" value={plant_type} onChange={handleChange}>
+                <Form.Control as="select" name="plant_type" value={plant_type} onChange={handleChange} className={appStyles.Input}>
                     <option>Palms</option>
                     <option>Ferns</option>
                     <option>Indoor Trees</option>
@@ -101,14 +102,16 @@ function PostCreateForm() {
                     placeholder='Ask your question here ...'
                     value={question}
                     onChange={handleChange}
+                    className={appStyles.Textarea}
+
                 />
             </Form.Group>
-            {errors?.question?.map((message, idx) => (
+            {errors.question?.map((message, idx) => (
                 <Alert variant="warning" key={idx}>
                     {message}
                 </Alert>
             ))}
-            
+
             <Button className={`${btnStyles.Button}`} type="submit">
                 Create
             </Button>
