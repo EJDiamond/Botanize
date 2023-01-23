@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { axiosRes } from '../../api/axiosDefaults'
 import Avatar from '../../components/Avatar'
 import { useCurrentUser } from '../../contexts/CurrentUserContext'
 import styles from "../../styles/Post.module.css"
@@ -12,6 +13,7 @@ const Post = (props) => {
         owner,
         profile_id,
         profile_image,
+        bookmark_count,
         bookmark_id,
         answer_count,
         plant,
@@ -19,10 +21,44 @@ const Post = (props) => {
         image,
         question,
         updated_at,
+        postPage,
+        setPosts,
     } = props
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
+
+    const handleBookmark = async () => {
+        try {
+            const { data } = await axiosRes.post("/bookmarks/", { post: id });
+            setPosts((prevPosts) => ({
+                ...prevPosts,
+                results: prevPosts.results.map((post) => {
+                    return post.id === id
+                        ? { ...post, bookmark_count: post.bookmark_count + 1, bookmark_id: data.id }
+                        : post;
+                })
+            }));
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    const handleDeleteBookmark = async () => {
+        try {
+            await axiosRes.delete(`/bookmarks/${bookmark_id}`);
+            setPosts((prevPosts) => ({
+                ...prevPosts,
+                results: prevPosts.results.map((post) => {
+                    return post.id === id
+                        ? { ...post, bookmark_count: post.bookmark_count - 1, bookmark_id: null }
+                        : post;
+                })
+            }));
+        } catch (err) {
+            console.log(err);
+        }
+    }
 
     return (
         <Card className={styles.Post}>
@@ -48,11 +84,11 @@ const Post = (props) => {
                             <i className="fa-regular fa-bookmark" />
                         </OverlayTrigger>
                     ) : bookmark_id ? (
-                        <span onClick={() => { }}>
+                        <span onClick={handleDeleteBookmark}>
                             <i className={`fa-solid fa-bookmark`} />
                         </span>
                     ) : currentUser ? (
-                        <span onClick={() => { }}>
+                        <span onClick={handleBookmark}>
                             <i className={`fa-regular fa-bookmark`} />
                         </span>
                     ) : (
@@ -60,12 +96,13 @@ const Post = (props) => {
                             <i className="fa-regular fa-bookmark" />
                         </OverlayTrigger>
                     )}
+                    {bookmark_count}
                     <Link to={`/posts/${id}`}>
                         <i class="fa-regular fa-comment" />
                         {answer_count}<strong> Answers</strong>
                     </Link>
                 </div>
-                <br/>
+                <br />
                 {plant && <Card.Text className='text-left'><strong>Plant: </strong>{plant}</Card.Text>}
                 {plant_type && <Card.Text><strong>Plant type: </strong>{plant_type}</Card.Text>}
                 {question && <Card.Text><strong>Question: </strong>{question}</Card.Text>}
