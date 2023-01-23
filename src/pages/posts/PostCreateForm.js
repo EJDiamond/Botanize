@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { Button, Col, Container, Form, Row } from 'react-bootstrap'
+import { Button, Col, Container, Form, Row, Alert } from 'react-bootstrap'
 
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
@@ -75,6 +75,11 @@ function PostCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.plant?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
             <Form.Group>
                 <Form.Label className="d-none">Plant Type</Form.Label>
                 <Form.Control as="select" name="plant_type" value={plant_type} onChange={handleChange}>
@@ -98,6 +103,12 @@ function PostCreateForm() {
                     onChange={handleChange}
                 />
             </Form.Group>
+            {errors?.question?.map((message, idx) => (
+                <Alert variant="warning" key={idx}>
+                    {message}
+                </Alert>
+            ))}
+            
             <Button className={`${btnStyles.Button}`} type="submit">
                 Create
             </Button>
@@ -140,6 +151,11 @@ function PostCreateForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {errors?.image?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
                         <div className='d-md-none'>{plantFields}</div>
                     </Container>
                 </Col>
