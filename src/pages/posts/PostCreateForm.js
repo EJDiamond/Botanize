@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Button, Col, Container, Form, Row } from 'react-bootstrap'
 
 import styles from "../../styles/PostCreateEditForm.module.css";
@@ -7,6 +7,8 @@ import btnStyles from "../../styles/Button.module.css";
 import { Image } from "react-bootstrap";
 import Asset from "../../components/Asset";
 import Upload from '../../assets/upload.png'
+import { useHistory } from 'react-router-dom';
+import { axiosReq } from "../../api/axiosDefaults";
 
 function PostCreateForm() {
 
@@ -19,6 +21,9 @@ function PostCreateForm() {
         question: "",
     });
     const { plant, plant_type, image, question } = postData;
+
+    const imageInput = useRef(null);
+    const history = useHistory();
 
     const handleChange = (event) => {
         setPostData({
@@ -36,6 +41,27 @@ function PostCreateForm() {
             });
         }
     };
+    // Function to handle form submission sending data to the API
+    const handleSubmit = async (event) => {
+        event.preventDefault()
+        const formData = new FormData();
+
+        formData.append('plant', plant)
+        formData.append('plant_plant', plant_type)
+        formData.append('image', imageInput.current.files[0])
+        formData.append('question', question)
+
+        try {
+            const {data} = await axiosReq.post('/posts/', formData);
+            history.push(`/posts/${data.id}`)
+        } catch (err){
+            console.log(err)
+            if (err.response?.status !== 401){
+                setErrors(err.response?.data)
+            }
+        }
+
+    }
 
     const plantFields = (
         <div className='text-center'>
@@ -75,13 +101,13 @@ function PostCreateForm() {
             <Button className={`${btnStyles.Button}`} type="submit">
                 Create
             </Button>
-            <Button className={`${btnStyles.Button}`} onClick={() => { }}>
+            <Button className={`${btnStyles.Button}`} onClick={() => history.goBack()}>
                 Cancel
             </Button>
         </div>
     );
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Row>
                 <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
                     <Container className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
@@ -111,6 +137,7 @@ function PostCreateForm() {
                                 id="image-upload"
                                 accept="image/*"
                                 onChange={handleChangeImage}
+                                ref={imageInput}
                             />
                         </Form.Group>
                         <div className='d-md-none'>{plantFields}</div>
