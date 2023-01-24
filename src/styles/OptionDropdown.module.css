@@ -1,0 +1,13 @@
+.DropdownItem {
+    display: inline-block;
+    max-width: 50%;
+    padding: -5px;
+}
+
+.Dropdown i {
+    color: #EFE9CE;
+}
+
+.Dropdown {
+    background-color: #314F28;
+}
