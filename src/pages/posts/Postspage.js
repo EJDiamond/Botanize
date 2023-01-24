@@ -9,6 +9,7 @@ import NoResults from "../../assets/no-results.png";
 import Post from './Post';
 import Asset from '../../components/Asset';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from '../../utils/utils';
 
 function Postspage({ filter = "", message }) {
     const [posts, setPosts] = useState({ results: [] });
@@ -64,7 +65,7 @@ function Postspage({ filter = "", message }) {
                                 dataLength={posts.results.length}
                                 loader={<Asset spinner/>}
                                 hasMore={!!posts.next}
-                                next={() => {}}
+                                next={() => fetchMoreData(posts, setPosts)}
                             />
                         ) : (
                             <Container className={appStyles.Content}>
