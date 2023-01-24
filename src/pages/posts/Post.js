@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
 import { axiosRes } from '../../api/axiosDefaults'
 import Avatar from '../../components/Avatar'
 import { OptionDropdown } from '../../components/OptionDropdown'
@@ -28,6 +29,20 @@ const Post = (props) => {
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/posts/${id}/edit`)
+    }
+
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/posts/${id}/`);
+            history.goBack();
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     const handleBookmark = async () => {
         try {
@@ -71,7 +86,12 @@ const Post = (props) => {
                     </Link>
                     <div className='d-flex align-items-center'>
                         <span>{updated_at}</span>
-                        {is_owner && PostPage && <OptionDropdown/>}
+                        {is_owner && PostPage && (
+                            <OptionDropdown
+                                handleEdit={handleEdit}
+                                handleDelete={handleDelete}
+                            />
+                        )}
                     </div>
                 </Media>
             </Card.Body>
