@@ -23,8 +23,8 @@ function PostPage() {
                     axiosReq.get(`/posts/${id}`),
                     axiosReq.get(`/answers/?post=${id}`)
                 ]);
-                setPost({ results: [post] })
-                setAnswers(answers)
+                setPost({ results: [post] });
+                setAnswers(answers);
             } catch (err) {
                 console.log(err)
             }
@@ -54,7 +54,12 @@ function PostPage() {
                     ) : null}
                     {answers.results.length ? (
                         answers.results.map((answer) => (
-                            <Answer key={answer.id} {...answer} />
+                            <Answer
+                                key={answer.id}
+                                {...answer}
+                                setPost={setPost}
+                                setAnswers={setAnswers}
+                            />
                         ))
                     ) : currentUser ? (
                         <span>Be the first to answer ...</span>
