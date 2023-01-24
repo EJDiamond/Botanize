@@ -5,10 +5,15 @@ import { axiosReq } from '../../api/axiosDefaults';
 
 import appStyles from "../../App.module.css";
 import Post from './Post';
+import AnswerCreateForm from '../answers/AnswerCreateForm';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 function PostPage() {
     const [post, setPost] = useState({ results: [] });
     const { id } = useParams();
+    const currentUser = useCurrentUser();
+    const profile_image = currentUser?.profile_image;
+    const [answers, setAnswers] = useState({ results: []});
 
     useEffect(() => {
         const handleMount = async () => {
@@ -34,7 +39,17 @@ function PostPage() {
             <Col className='py-2 p-0 p-lg-2' lg={6}>
                 <Container className={appStyles.Content}>
                     <Post {...post.results[0]} setPosts={setPost} postPage />
-                    Answers
+                    {currentUser ? (
+                        <AnswerCreateForm
+                            profile_id={currentUser.profile_id}
+                            profileImage={profile_image}
+                            post={id}
+                            setPost={setPost}
+                            setAnswers={setAnswers}
+                        />
+                    ) : answers.results.length ? (
+                        "Answers"
+                    ) : null}
                 </Container>
             </Col>
             <Col className='d-none d-lg-block p-0 p-lg-2' lg={3}>
