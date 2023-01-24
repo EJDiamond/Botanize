@@ -3,17 +3,17 @@ import { Col, Container, Image, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 
-import appStyles from "../../App.module.css";
 import Post from './Post';
 import AnswerCreateForm from '../answers/AnswerCreateForm';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import appStyles from "../../App.module.css";
 
 function PostPage() {
     const [post, setPost] = useState({ results: [] });
     const { id } = useParams();
     const currentUser = useCurrentUser();
     const profile_image = currentUser?.profile_image;
-    const [answers, setAnswers] = useState({ results: []});
+    const [answers, setAnswers] = useState({ results: [] });
 
     useEffect(() => {
         const handleMount = async () => {

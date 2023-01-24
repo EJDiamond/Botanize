@@ -1,0 +1,12 @@
+.AnswerForm {
+    border: #314F28 dotted 2px;
+    background-color: #EFE9CE;
+    margin-left: 5px;
+    margin-right: 25px;
+    color: #314F28;
+}
+
+.AnswerForm:focus {
+    background-color: #EFE9CE;
+    box-shadow: none;
+}

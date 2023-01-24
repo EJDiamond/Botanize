@@ -96,7 +96,7 @@ function PostCreateForm() {
                 <Form.Label className="d-none">Question</Form.Label>
                 <Form.Control
                     as="textarea"
-                    rows={6}
+                    rows={4}
                     name="question"
                     placeholder='Ask your question here ...'
                     value={question}

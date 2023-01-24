@@ -13,6 +13,7 @@
 
 .Button:hover {
     background-color: #5D7736 !important;
+    color: white;
 }
 
 .Button:hover:active {
@@ -32,4 +33,8 @@
 .Wide {
     padding: 10px 50px;
     width: 100%;
+}
+
+.Margin {
+    margin-right: 25px;
 }

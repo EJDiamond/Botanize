@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { axiosRes } from '../../api/axiosDefaults';
 import Avatar from "../../components/Avatar";
 import styles from "../../styles/AnswerCreateEditForm.module.css";
+import btnStyles from "../../styles/Button.module.css";
 
 function AnswerCreateForm(props) {
     const { post, setPost, setAnswers, profileImage, profile_id } = props;
@@ -46,16 +47,17 @@ function AnswerCreateForm(props) {
                         <Avatar src={profileImage} />
                     </Link>
                     <Form.Control
+                        className={styles.AnswerForm}
                         placeholder='answer...'
                         as="textarea"
                         value={content}
-                        rows={4}
+                        rows={2}
                         onChange={handleChange}
                     />
                 </InputGroup>
             </Form.Group>
             <button
-                className={`${styles.Button} btn d-block ml-auto`}
+                className={`${btnStyles.Button} ${btnStyles.Margin} btn d-block ml-auto`}
                 disabled={!content.trim()}
                 type="submit"
             >
