@@ -47,7 +47,7 @@ function PostCreateForm() {
         const formData = new FormData();
 
         formData.append('plant', plant)
-        formData.append('plant_plant', plant_type)
+        // formData.append('plant_type', plant_type)
         formData.append('image', imageInput.current.files[0])
         formData.append('question', question)
 
@@ -134,7 +134,7 @@ function PostCreateForm() {
                                     <div>
                                         <Form.Label
                                             className={`${btnStyles.Button} btn`}
-                                            htmlfor='image-upload'
+                                            htmlFor='image-upload'
                                         >
                                             Replace image
                                         </Form.Label>

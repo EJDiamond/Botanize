@@ -8,6 +8,10 @@
     line-height: 7px;
 }
 
+.Cardtext {
+    line-height: 19px;
+}
+
 .Bookmark {
     color: #314F28;
     padding-left: 0 !important;

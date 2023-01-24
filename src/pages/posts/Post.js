@@ -70,7 +70,7 @@ const Post = (props) => {
                     </Link>
                     <div className='d-flex align-items-center'>
                         <span>{updated_at}</span>
-                        {is_owner && PostPage && <i class="fa-solid fa-ellipsis-vertical"></i>}
+                        {is_owner && PostPage && <i className="fa-solid fa-ellipsis-vertical"></i>}
                     </div>
                 </Media>
             </Card.Body>
@@ -98,7 +98,7 @@ const Post = (props) => {
                     )}
                     {bookmark_count}
                     <Link to={`/posts/${id}`}>
-                        <i class="fa-regular fa-comment" />
+                        <i className="fa-regular fa-comment" />
                         {answer_count}<strong> Answers</strong>
                     </Link>
                 </div>
@@ -106,7 +106,7 @@ const Post = (props) => {
                 <br />
                 {plant && <Card.Text className='text-left'><strong>Plant: </strong>{plant}</Card.Text>}
                 {plant_type && <Card.Text><strong>Plant type: </strong>{plant_type}</Card.Text>}
-                {question && <Card.Text><strong>Question: </strong>{question}</Card.Text>}
+                {question && <Card.Text className={styles.Cardtext}><strong>Question: </strong>{question}</Card.Text>}
             </Card.Body>
         </Card>
     )
