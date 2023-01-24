@@ -60,7 +60,6 @@ function PostCreateForm() {
                 setErrors(err.response?.data)
             }
         }
-
     }
 
     const plantFields = (

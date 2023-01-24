@@ -1,0 +1,21 @@
+.SearchBar input {
+    border-radius: 30px;
+    color: #314F28;
+    background-color: #EFE9CE;
+    padding-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.SearchBar input:focus {
+    background-color: #EFE9CE;
+    box-shadow: none;
+    outline: none !important;
+}
+
+.SearchIcon {
+    color: #314F28;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 12px;
+}
