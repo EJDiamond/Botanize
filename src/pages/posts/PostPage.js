@@ -38,7 +38,7 @@ function PostPage() {
                 </Container>
             </Col>
             <Col className='d-none d-lg-block p-0 p-lg-2' lg={3}>
-                <Image src="https://res.cloudinary.com/ejdiamo/image/upload/v1674561489/hanging-plant_q9kptl.png" alt='hanging plant' />
+                <Image className="position-fixed" src="https://res.cloudinary.com/ejdiamo/image/upload/v1674561489/hanging-plant_q9kptl.png" alt='hanging plant' />
             </Col>
         </Row>
     )
