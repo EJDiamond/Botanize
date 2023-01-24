@@ -81,19 +81,19 @@ const Post = (props) => {
                 <div>
                     {is_owner ? (
                         <OverlayTrigger placement='top' overlay={<Tooltip>Your posts are saved on your profile!</Tooltip>}>
-                            <i className="fa-regular fa-bookmark" />
+                            <i className={`fa-regular fa-bookmark ${styles.Bookmark}`} />
                         </OverlayTrigger>
                     ) : bookmark_id ? (
                         <span onClick={handleDeleteBookmark}>
-                            <i className={`fa-solid fa-bookmark`} />
+                            <i className={`fa-solid fa-bookmark ${styles.Bookmark}`} />
                         </span>
                     ) : currentUser ? (
                         <span onClick={handleBookmark}>
-                            <i className={`fa-regular fa-bookmark`} />
+                            <i className={`fa-regular fa-bookmark ${styles.Bookmark}`} />
                         </span>
                     ) : (
-                        <OverlayTrigger placement='top' overlay={<Tooltip>Log in to bookamrk posts!</Tooltip>}>
-                            <i className="fa-regular fa-bookmark" />
+                        <OverlayTrigger placement='top' overlay={<Tooltip>Log in to bookmark posts!</Tooltip>}>
+                            <i className={`fa-regular fa-bookmark ${styles.Bookmark}`} />
                         </OverlayTrigger>
                     )}
                     {bookmark_count}
@@ -102,6 +102,7 @@ const Post = (props) => {
                         {answer_count}<strong> Answers</strong>
                     </Link>
                 </div>
+                <br />
                 <br />
                 {plant && <Card.Text className='text-left'><strong>Plant: </strong>{plant}</Card.Text>}
                 {plant_type && <Card.Text><strong>Plant type: </strong>{plant_type}</Card.Text>}

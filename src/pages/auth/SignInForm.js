@@ -42,7 +42,7 @@ const SignInForm = () => {
         <Row className={styles.Row}>
             <Col className="my-auto py-2 p-md-2" md={7}>
                 <Container className={`${appStyles.Content} p-4 `}>
-                    <h1 className={styles.Header}>Sign Up</h1>
+                    <h1 className={styles.Header}>Sign In</h1>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group controlId="username">
                             <Form.Label className="d-none">Username</Form.Label>
@@ -77,7 +77,7 @@ const SignInForm = () => {
                             </Alert>
                         ))}
                         <Button className={`${btnStyles.Button} ${btnStyles.Wide}`} type="submit">
-                            Sign Up
+                            Sign In
                         </Button>
                         {errors.non_field_errors?.map((message, idx) => (
                             <Alert className="mt-4" variant="warning" key={idx}>

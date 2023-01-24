@@ -30,7 +30,7 @@ const NavBar = () => {
             <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/explore">
                 <i className="fa-solid fa-compass"></i> Explore
             </NavLink>
-            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/saved">
+            <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/bookmarks">
                 <i className="fa-solid fa-bookmark"></i> Saved
             </NavLink>
             <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>

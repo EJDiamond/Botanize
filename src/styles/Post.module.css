@@ -5,13 +5,14 @@
     text-align: left;
     margin-bottom: 15px;
     border: none;
+    line-height: 7px;
 }
 
-.BookmarkAnswer {
+.Bookmark {
     color: #314F28;
-    ;
+    padding-left: 0 !important;
 }
 
-.BookmarkAnswer:hover {
+.Bookmark:hover {
     color: #5D7736;
 }
