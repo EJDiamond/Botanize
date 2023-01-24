@@ -1,0 +1,14 @@
+.Owner {
+    color: #314F28;
+    font-weight: bold;
+}
+
+.Date {
+    font-size: small;
+    color: #5D7736;
+    margin-left: 5px;
+}
+
+.Line {
+    background-color: #D2C487;
+}

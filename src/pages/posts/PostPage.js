@@ -7,6 +7,7 @@ import Post from './Post';
 import AnswerCreateForm from '../answers/AnswerCreateForm';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import appStyles from "../../App.module.css";
+import Answer from '../answers/Answer';
 
 function PostPage() {
     const [post, setPost] = useState({ results: [] });
@@ -18,11 +19,12 @@ function PostPage() {
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const [{ data: post }] = await Promise.all([
-                    axiosReq.get(`/posts/${id}`)
+                const [{ data: post }, { data: answers }] = await Promise.all([
+                    axiosReq.get(`/posts/${id}`),
+                    axiosReq.get(`/answers/?post=${id}`)
                 ]);
                 setPost({ results: [post] })
-                console.log(post);
+                setAnswers(answers)
             } catch (err) {
                 console.log(err)
             }
@@ -50,6 +52,15 @@ function PostPage() {
                     ) : answers.results.length ? (
                         "Answers"
                     ) : null}
+                    {answers.results.length ? (
+                        answers.results.map((answer) => (
+                            <Answer key={answer.id} {...answer} />
+                        ))
+                    ) : currentUser ? (
+                        <span>Be the first to answer ...</span>
+                    ) : (
+                        <span>No answers yet!</span>
+                    )}
                 </Container>
             </Col>
             <Col className='d-none d-lg-block p-0 p-lg-2' lg={3}>
