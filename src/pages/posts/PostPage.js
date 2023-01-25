@@ -8,6 +8,10 @@ import AnswerCreateForm from '../answers/AnswerCreateForm';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import appStyles from "../../App.module.css";
 import Answer from '../answers/Answer';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { fetchMoreData } from "../../utils/utils";
+import Asset from '../../components/Asset';
+
 
 function PostPage() {
     const [post, setPost] = useState({ results: [] });
@@ -53,14 +57,20 @@ function PostPage() {
                         "Answers"
                     ) : null}
                     {answers.results.length ? (
-                        answers.results.map((answer) => (
-                            <Answer
-                                key={answer.id}
-                                {...answer}
-                                setPost={setPost}
-                                setAnswers={setAnswers}
-                            />
-                        ))
+                        <InfiniteScroll
+                            children={answers.results.map((answer) => (
+                                <Answer
+                                    key={answer.id}
+                                    {...answer}
+                                    setPost={setPost}
+                                    setAnswers={setAnswers}
+                                />
+                            ))}
+                            dataLength={answers.results.length}
+                            loader={<Asset spinner />}
+                            hasMore={!!answers.next}
+                            next={() => fetchMoreData(answers, setAnswers)}
+                        />
                     ) : currentUser ? (
                         <span className='pl-3'>Be the first to answer ...</span>
                     ) : (
