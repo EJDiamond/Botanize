@@ -129,7 +129,9 @@ const Post = (props) => {
                 {plant_type && <Card.Text><strong>Plant type: </strong>{plant_type}</Card.Text>}
                 {question && <Card.Text className={styles.Cardtext}><strong>Question: </strong>{question}</Card.Text>}
             </Card.Body>
+            <hr className={styles.Line} />
         </Card>
+
     )
 }
 
