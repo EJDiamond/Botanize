@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container } from 'react-bootstrap';
 import { axiosReq } from '../../api/axiosDefaults';
 import appStyles from "../../App.module.css";
+import Asset from '../../components/Asset';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
 const PlantWhisperers = () => {
@@ -31,10 +32,16 @@ const PlantWhisperers = () => {
 
   return (
     <Container className={appStyles.Content}>
-      <p>Plant Whisperers</p>
-      {plantWhisperers.results.map((profile) => (
-          <p key={profile.id}>{profile.owner}</p>
-      ))}
+      {plantWhisperers.results.length ? (
+        <>
+          <p>Plant Whisperers</p>
+          {plantWhisperers.results.map((profile) => (
+              <p key={profile.id}>{profile.owner}</p>
+          ))}
+        </>
+      ) : (
+        <Asset spinner />
+      )}
     </Container>
   );
 };
