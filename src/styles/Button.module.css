@@ -11,11 +11,13 @@
     border: none;
 }
 
+.ButtonWhite,
 .Button:hover {
     background-color: #5D7736 !important;
     color: white;
 }
 
+.ButtonWhite,
 .Button:hover:active {
     background-color: white !important;
     color: #314F28 !important;
@@ -24,11 +26,11 @@
     box-shadow: none !important;
 }
 
+.ButtonWhite,
 .Button:focus {
     background-color: #314F28;
     box-shadow: none;
 }
-
 
 .Wide {
     padding: 10px 50px;
@@ -37,4 +39,17 @@
 
 .Margin {
     margin-right: 25px;
+}
+
+.ButtonWhite {
+    background-color: white;
+    border-radius: 80px;
+    color: #314F28;
+    font-size: 1rem;
+    align-self: center;
+    padding: 2px 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    min-width: 70px;
+    border: none;
 }
