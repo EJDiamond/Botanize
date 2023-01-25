@@ -10,6 +10,7 @@ import Post from './Post';
 import Asset from '../../components/Asset';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
+import PlantWhisperers from '../profiles/PlantWhisperers';
 
 function Postspage({ filter = "", message }) {
     const [posts, setPosts] = useState({ results: [] });
@@ -39,9 +40,7 @@ function Postspage({ filter = "", message }) {
     return (
         <Row className='h-100'>
             <Col className='d-none d-lg-block p-0 p-lg-2' lg={3}>
-                <Container className={appStyles.Content}>
-                    Plant whisperers
-                </Container>
+                <PlantWhisperers />
             </Col>
             <Col className='py-2 p-0 p-lg-2' lg={6}>
             <i class={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`}></i>
@@ -78,9 +77,6 @@ function Postspage({ filter = "", message }) {
                         <Asset spinner />
                     </Container>
                 )}
-                <Container className={appStyles.Content}>
-                    Answers
-                </Container>
             </Col>
             <Col className='d-none d-lg-block p-0 p-lg-2' lg={3}>
                 <Image className="position-fixed" src="https://res.cloudinary.com/ejdiamo/image/upload/v1674561489/hanging-plant_q9kptl.png" alt='hanging plant' />
