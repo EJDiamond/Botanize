@@ -44,26 +44,26 @@ function Postspage({ filter = "", message }) {
             </Col>
             <Col className='py-2 p-0 p-lg-2' lg={6}>
                 <PlantWhisperers mobile />
-            <i class={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`}></i>
-            <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}
-            >
-                <Form.Control
-                    type="text"
-                    className="mr-sm-2"
-                    placeholder='Search posts'
-                    value={query}
-                    onChange={(event) => setQuery(event.target.value)}/>
-            </Form>
+                <i class={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`}></i>
+                <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}
+                >
+                    <Form.Control
+                        type="text"
+                        className="mr-sm-2"
+                        placeholder='Search posts'
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)} />
+                </Form>
                 {hasLoaded ? (
                     <>
                         {posts.results.length ? (
                             <InfiniteScroll
                                 children={posts.results.map((post) => (
                                     <Post key={post.id} {...post} setPosts={setPosts} />
-                                    ))
+                                ))
                                 }
                                 dataLength={posts.results.length}
-                                loader={<Asset spinner/>}
+                                loader={<Asset spinner />}
                                 hasMore={!!posts.next}
                                 next={() => fetchMoreData(posts, setPosts)}
                             />
