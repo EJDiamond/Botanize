@@ -11,3 +11,9 @@
 .Dropdown {
     background-color: #314F28;
 }
+
+.Absolute {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+  }
