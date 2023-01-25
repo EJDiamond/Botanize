@@ -7,7 +7,7 @@ import Avatar from '../../components/Avatar'
 import { OptionDropdown } from '../../components/OptionDropdown'
 import { useCurrentUser } from '../../contexts/CurrentUserContext'
 import styles from "../../styles/Post.module.css"
-import PostPage from './PostPage'
+
 
 const Post = (props) => {
     const {
@@ -86,7 +86,7 @@ const Post = (props) => {
                     </Link>
                     <div className='d-flex align-items-center'>
                         <span>{updated_at}</span>
-                        {is_owner && PostPage && (
+                        {is_owner && postPage && (
                             <OptionDropdown
                                 handleEdit={handleEdit}
                                 handleDelete={handleDelete}
