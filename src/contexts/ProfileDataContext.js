@@ -1,5 +1,6 @@
 import { useContext, createContext, useEffect, useState } from "react";
 import { axiosReq, axiosRes } from "../api/axiosDefaults";
+import { followHelper } from "../utils/utils";
 import { useCurrentUser } from "./CurrentUserContext";
 
 export const ProfileDataContext = createContext();
@@ -18,37 +19,50 @@ export const ProfileDataProvider = ({ children }) => {
 
     const handleFollow = async (clickedProfile) => {
         try {
-            const {data} = await axiosRes.post(`/followers/`, {
-                followed: clickedProfile.id
-            })
+            const { data } = await axiosRes.post('/followers/', {
+                followed: clickedProfile.id,
+            });
+
+            setProfileData((prevState) => ({
+                ...prevState,
+                pageProfile: {
+                    results: prevState.pageProfile.results.map(
+                        (profile) => followHelper(profile, clickedProfile, data.id)),
+                },
+                plantWhisperers: {
+                    ...prevState.plantWhisperers,
+                    results: prevState.plantWhisperers.results.map((
+                        profile) => followHelper(profile, clickedProfile, data.id)),
+                },
+            }));
         } catch (err) {
             console.log(err)
         }
     }
 
     useEffect(() => {
-    const handleMount = async () => {
-        try {
-            const { data } = await axiosReq.get(
-                "/profiles/?ordering=-followers_count"
-            );
-            setProfileData((prevState) => ({
-                ...prevState,
-                plantWhisperers: data,
-            }));
-        } catch (err) {
-            console.log(err)
-        }
-    };
-    handleMount()
-}, [currentUser]);
+        const handleMount = async () => {
+            try {
+                const { data } = await axiosReq.get(
+                    "/profiles/?ordering=-followers_count"
+                );
+                setProfileData((prevState) => ({
+                    ...prevState,
+                    plantWhisperers: data,
+                }));
+            } catch (err) {
+                console.log(err)
+            }
+        };
+        handleMount()
+    }, [currentUser]);
 
-return (
-    <ProfileDataContext.Provider value={profileData}>
-        <SetProfileDataContext.Provider value={setProfileData}>
-            {children}
-        </SetProfileDataContext.Provider>
-    </ProfileDataContext.Provider>
-)
+    return (
+        <ProfileDataContext.Provider value={profileData}>
+            <SetProfileDataContext.Provider value={{ setProfileData, handleFollow }}>
+                {children}
+            </SetProfileDataContext.Provider>
+        </ProfileDataContext.Provider>
+    )
 };
 
