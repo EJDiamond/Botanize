@@ -43,6 +43,7 @@ function Postspage({ filter = "", message }) {
                 <PlantWhisperers />
             </Col>
             <Col className='py-2 p-0 p-lg-2' lg={6}>
+                <PlantWhisperers mobile />
             <i class={`fa-solid fa-magnifying-glass ${styles.SearchIcon}`}></i>
             <Form className={styles.SearchBar} onSubmit={(event) => event.preventDefault()}
             >

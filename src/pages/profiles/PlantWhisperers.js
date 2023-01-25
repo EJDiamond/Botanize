@@ -5,7 +5,7 @@ import appStyles from "../../App.module.css";
 import Asset from '../../components/Asset';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 
-const PlantWhisperers = () => {
+const PlantWhisperers = ({ mobile }) => {
   const [profileData, setProfileData] = useState({
     pageProfile: { results: [] },
     plantWhisperers: { results: [] },
@@ -31,13 +31,21 @@ const PlantWhisperers = () => {
   }, [currentUser]);
 
   return (
-    <Container className={appStyles.Content}>
+    <Container className={`${appStyles.Content} ${mobile && 'd-lg-none text-center mb-3'}`}>
       {plantWhisperers.results.length ? (
         <>
           <p>Plant Whisperers</p>
-          {plantWhisperers.results.map((profile) => (
+          {mobile ? (
+            <div className='d-flex justify-content-around'>
+              {plantWhisperers.results.slice(0,3).map((profile) => (
+                <p key={profile.id}>{profile.owner}</p>
+              ))}
+            </div>
+          ) : (
+            plantWhisperers.results.map((profile) => (
               <p key={profile.id}>{profile.owner}</p>
-          ))}
+            ))
+          )}
         </>
       ) : (
         <Asset spinner />
