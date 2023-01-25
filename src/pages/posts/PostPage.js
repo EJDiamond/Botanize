@@ -62,10 +62,11 @@ function PostPage() {
                             />
                         ))
                     ) : currentUser ? (
-                        <span>Be the first to answer ...</span>
+                        <span className='pl-3'>Be the first to answer ...</span>
                     ) : (
-                        <span>No answers yet!</span>
+                        <span className='pl-3'>No answers yet!</span>
                     )}
+                    <br />
                 </Container>
             </Col>
             <Col className='d-none d-lg-block p-0 p-lg-2' lg={3}>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Media } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { axiosRes } from '../../api/axiosDefaults';
@@ -6,6 +6,7 @@ import Avatar from '../../components/Avatar';
 import { OptionDropdown } from '../../components/OptionDropdown';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from '../../styles/Answer.module.css';
+import AnswerEditForm from './AnswerEditForm';
 
 const Answer = (props) => {
     const {
@@ -18,8 +19,10 @@ const Answer = (props) => {
         setPost,
         setAnswers,
     } = props;
+
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner;
+    const [showEditForm, setShowEditForm] = useState(false);
 
     const handleDelete = async () => {
         try {
@@ -41,7 +44,7 @@ const Answer = (props) => {
     };
 
     return (
-        <div>
+        <>
             <hr className={styles.Line} />
             <Media>
                 <Link to={`/profiles/${profile_id}`}>
@@ -50,13 +53,28 @@ const Answer = (props) => {
                 <Media.Body className='align-self-center ml-2'>
                     <span className={styles.Owner}>{owner}</span>
                     <span className={styles.Date}>{updated_at}</span>
-                    <p>{content}</p>
+                    {showEditForm ? (
+                        <AnswerEditForm
+                            id={id}
+                            profile_id={profile_id}
+                            content={content}
+                            profileImage={profile_image}
+                            setAnswers={setAnswers}
+                            setShowEditForm={setShowEditForm}
+                        />
+                    ) : (
+                        <p>{content}</p>
+                    )}
+
                 </Media.Body>
-                {is_owner && (
-                    <OptionDropdown handleDelete={handleDelete} />
+                {is_owner && !showEditForm && (
+                    <OptionDropdown
+                        handleEdit={() => setShowEditForm(true)}
+                        handleDelete={handleDelete}
+                    />
                 )}
             </Media>
-        </div>
+        </>
     );
 };
 
