@@ -11,6 +11,7 @@ import Answer from '../answers/Answer';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from "../../utils/utils";
 import Asset from '../../components/Asset';
+import PlantWhisperers from '../profiles/PlantWhisperers';
 
 
 function PostPage() {
@@ -38,12 +39,11 @@ function PostPage() {
     return (
         <Row className='h-100'>
             <Col className='d-none d-lg-block p-0 p-lg-2' lg={3}>
-                <Container className={appStyles.Content}>
-                    Plant whisperers
-                </Container>
+                <PlantWhisperers />
             </Col>
             <Col className='py-2 p-0 p-lg-2' lg={6}>
                 <Container className={appStyles.Content}>
+                    <PlantWhisperers mobile />
                     <Post {...post.results[0]} setPosts={setPost} postPage />
                     {currentUser ? (
                         <AnswerCreateForm
