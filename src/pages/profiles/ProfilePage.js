@@ -8,7 +8,7 @@ import PlantWhisperers from './PlantWhisperers';
 import Asset from '../../components/Asset';
 import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosReq } from '../../api/axiosDefaults';
-import { useSetProfileData } from '../../contexts/ProfileDataContext';
+import { useProfileData, useSetProfileData } from '../../contexts/ProfileDataContext';
 
 
 
@@ -17,6 +17,9 @@ function ProfilePage() {
     const [hasLoaded, setHasLoaded] = useState(false);
     const { id } = useParams();
     const setProfileData = useSetProfileData();
+    const { pageProfile } = useProfileData();
+    const [profile] = pageProfile.results;
+    const is_owner = currentUser?.username === profile?.owner;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,6 +34,7 @@ function ProfilePage() {
             } catch (err) {
                 console.log(err)
             }
+            setHasLoaded(true);
         }
         fetchData();
     }, [id, setProfileData])
@@ -38,36 +42,38 @@ function ProfilePage() {
     const userProfile = (
         <>
             <Row noGutters className='px-3 text-center'>
-                <Col lg={3}>
+                <Col lg={3} className='text-lg-center'>
                     <div>
                         <Image
+                            className={styles.ProfileImage}
+                            src={profile?.image}
                             roundedCircle
                         />
                     </div>
                     <div>
-                        <h3>owner name</h3>
+                        <h5 className='m-2'>{profile?.owner}</h5>
                     </div>
                 </Col>
                 <Col lg={7}>
-                    <Row className='justify-content-center no-gutters'>
+                    <Row className='justify-content-center no-gutters mt-2'>
                         <Col xs={3} className='my-2'>
-                            <div>{ProfilePage.posts_count}</div>
-                            <div>Posts</div>
+                            <div>{profile?.posts_count}</div>
+                            <div className={styles.CountText}>Posts</div>
                         </Col>
                         <Col xs={3} className='my-2'>
-                            <div>{ProfilePage.followers_count}</div>
-                            <div>Followers</div>
+                            <div>{profile?.followers_count}</div>
+                            <div className={styles.CountText}>Followers</div>
                         </Col>
                         <Col xs={3} className='my-2'>
-                            <div>{ProfilePage.following_count}</div>
-                            <div>Following</div>
+                            <div>{profile?.following_count}</div>
+                            <div className={styles.CountText}>Following</div>
                         </Col>
                     </Row>
-                    <Row>
-                        bio
+                    <Row className='justify-content-center no-gutters'>
+                        { profile?.content && (<Col className='p-3'>{profile.content}</Col>)}
                     </Row>
                 </Col>
-                <Col lg={2}>
+                <Col lg={2} className='mt-2'>
                     {currentUser && !is_owner && (
                         profile?.following_id ? (
                             <Button className={`${btnStyles.ButtonWhite}`}>
