@@ -111,7 +111,7 @@ function ProfilePage() {
             ) : (
                 <Asset
                     src={NoResults}
-                    message={`No posts found, ${profile?.owner} hasn't shared ant content yet`}
+                    message={`No posts found, ${profile?.owner} hasn't shared any content yet`}
                 />
             )}
         </>
