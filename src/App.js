@@ -15,6 +15,9 @@ import UsernameForm from './pages/profiles/UsernameForm';
 import UserPasswordForm from './pages/profiles/UserPasswordForm';
 import ProfileEditForm from './pages/profiles/ProfileEditForm';
 import PlantCreateForm from './pages/plants/PlantCreateForm';
+import PlantPage from './pages/plants/PlantPage';
+import Plantspage from './pages/plants/PlantsPage';
+import PlantEditForm from './pages/plants/PlantEditForm';
 
 
 function App() {
@@ -50,6 +53,9 @@ function App() {
               <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />} />
               <Route exact path="/profiles/:id/edit/" render={() => <ProfileEditForm />} />
               <Route exact path="/plants/edit" render={() => <PlantCreateForm />} />
+              <Route exact path="/plants/:id" render={() => <PlantPage />} />
+              <Route exact path="/plants/" render={() => <Plantspage />} />
+              <Route exact path="/plants/:id/edit" render={() => <PlantEditForm />} />
               <Route render={() => <p>Page not found!</p>} />
             </Switch>
           </Container>
