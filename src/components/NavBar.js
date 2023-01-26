@@ -65,6 +65,9 @@ const NavBar = () => {
                         <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">
                             <i className="fa-solid fa-house-chimney"></i> Home
                         </NavLink>
+                        <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/plants">
+                        <i className="fa-solid fa-leaf"></i> Plants
+                        </NavLink>
                         {currentUser ? loggedInIcons : loggedOutIcons}
                     </Nav>
                 </Navbar.Collapse>
