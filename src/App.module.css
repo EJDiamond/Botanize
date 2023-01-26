@@ -87,6 +87,11 @@ figure {
     padding: 10px;
 }
 
+.Header {
+    font-family: 'Annie Use Your Telescope', cursive;
+    font-size: x-large;
+}
+
 /* scrollbar */
 *::-webkit-scrollbar {
     width: 5px;

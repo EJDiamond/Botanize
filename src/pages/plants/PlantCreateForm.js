@@ -149,9 +149,9 @@ function PlantCreateForm() {
         <Form onSubmit={handleSubmit}>
             <Row>
                 <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-                        <div className={`${appStyles.Content} text-center mb-2`} >
-                            <strong>Show off your plants!</strong>
-                        </div>
+                    <div className={`${appStyles.Content} ${appStyles.Header} text-center mb-2`} >
+                        <strong>Show off your plants!</strong>
+                    </div>
                     <Container className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
                         <Form.Group className='text-center'>
                             {image ? (

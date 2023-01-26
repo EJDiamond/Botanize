@@ -42,7 +42,7 @@ function PlantsPage({ filter = "", message }) {
             </Col>
             <Col className='py-2 p-0 p-lg-2' lg={6}>
                 <PlantWhisperers mobile />
-                <div className={`${appStyles.Content} text-center mb-2`}>
+                <div className={`${appStyles.Content} ${appStyles.Header} text-center mb-2`}>
                     <strong>Plants from the community</strong>
                 </div>
 

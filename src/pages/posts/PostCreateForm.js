@@ -130,7 +130,7 @@ function PostCreateForm() {
         <Form onSubmit={handleSubmit}>
             <Row>
                 <Col className="py-2 p-0 p-md-2" md={7} lg={8}>
-                    <div className={`${appStyles.Content} text-center mb-1 mt-4`} >
+                    <div className={`${appStyles.Content} ${appStyles.Header} text-center mb-1 mt-4`} >
                         <strong>Get help for your plants!</strong>
                     </div>
                     <Container className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}>
