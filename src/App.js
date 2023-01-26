@@ -31,15 +31,15 @@ function App() {
           <Container className={styles.Main}>
             <Switch>
               <Route exact path="/"
-                render={() => (<Postspage message="No plants found by that name or type, please try another or follow a user."
+                render={() => (<Postspage message="No plants or profiles found by that name, please try another or follow a user."
                 filter={`owner__followed__owner__profile=${profile_id}&`} />
                 )} />
               <Route exact path="/explore"
-                render={() => (<Postspage message="No plants found by that name or type, please try another."
+                render={() => (<Postspage message="No plants or profiles found by that name, please try another."
                 />
                 )} />
               <Route exact path="/bookmarks"
-                render={() => (<Postspage message="No plants found by that name or type, please try another or save a post."
+                render={() => (<Postspage message="No plants or profiles found by that name, please try another or save a post."
                 filter={`bookmarks__owner__profile=${profile_id}&ordering=-bookmarks__created_at&`}
                 />
                 )} />
@@ -55,7 +55,7 @@ function App() {
               <Route exact path="/plants/create" render={() => <PlantCreateForm />} />
               <Route exact path="/plants/:id" render={() => <PlantPage />} />
               <Route exact path="/plants/" render={() => <PlantsPage />} />
-              <Route exact path="/plants/:id/edit" render={() => <PlantEditForm />} /> 
+              <Route exact path="/plants/:id/edit" render={() => <PlantEditForm />} />
               <Route render={() => <p>Page not found!</p>} />
             </Switch>
           </Container>

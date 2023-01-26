@@ -82,6 +82,15 @@ function ProfilePage() {
                     <Row className='justify-content-center no-gutters'>
                         {profile?.bio && (<Col className='p-3'>{profile.bio}</Col>)}
                     </Row>
+                    <Row className='justify-content-center no-gutters'>
+                        <div>
+                            <Link to="/plants/create">
+                                <button className={styles.Button}>
+                                    <i className={`fa-solid fa-leaf ${styles.Icon}`}></i>
+                                </button>
+                            </Link>
+                        </div>
+                    </Row>
                 </Col>
                 <Col lg={2} className='mt-2'>
                     {currentUser && !is_owner && (
@@ -100,11 +109,6 @@ function ProfilePage() {
                                 Follow
                             </Button>
                         ))}
-                    <div>
-                        <Link to="/plants/create">
-                            <button className={btnStyles.button}>Add Plant</button>
-                        </Link>
-                    </div>
                 </Col>
             </Row>
         </>
