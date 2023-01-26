@@ -42,6 +42,22 @@ const Answer = (props) => {
         }
     };
 
+    const handleUnlike = async () => {
+        try {
+            await axiosRes.delete(`/likes/${like_id}/`);
+            setAnswers((prevAnswer) => ({
+                ...prevAnswer,
+                results: prevAnswer.results.map((answer) => {
+                    return answer.id === id
+                    ? { ...answer, like_count: answer.like_count -1, like_id: null }
+                    : answer;
+                }),
+            }));
+        } catch(err) {
+            console.log(err)
+        }
+    };
+
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/answers/${id}`);
@@ -91,7 +107,7 @@ const Answer = (props) => {
                             <i className='far fa-heart' />
                         </OverlayTrigger>
                     ) : like_id ? (
-                        <span onClick={() => { }}>
+                        <span onClick={handleUnlike}>
                             <i className={`fas fa-heart ${styles.Heart}`} />
                         </span>
                     ) : currentUser ? (
