@@ -6,7 +6,7 @@ import { axiosRes } from '../../api/axiosDefaults'
 import Avatar from '../../components/Avatar'
 import { OptionDropdown } from '../../components/OptionDropdown'
 import { useCurrentUser } from '../../contexts/CurrentUserContext'
-import styles from "../../styles/Post.module.css"
+import styles from "../../styles/PostPlant.module.css"
 
 
 const Plant = (props) => {

@@ -102,7 +102,7 @@ function ProfilePage() {
                         ))}
                     <div>
                         <Link to="/plants/create">
-                            <button>Plants</button>
+                            <button className={btnStyles.button}>Add Plant</button>
                         </Link>
                     </div>
                 </Col>
