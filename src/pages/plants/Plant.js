@@ -78,4 +78,4 @@ const Plant = (props) => {
     )
 }
 
-export default Plant
+export default Plant;

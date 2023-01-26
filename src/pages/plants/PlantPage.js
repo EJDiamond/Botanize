@@ -3,9 +3,9 @@ import { Col, Container, Image, Row } from 'react-bootstrap'
 import { useParams } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 
-import Plant from './Plant';
 import appStyles from "../../App.module.css";
 import PlantWhisperers from '../profiles/PlantWhisperers';
+import Plant from './Plant';
 
 
 function PlantPage() {
@@ -17,7 +17,7 @@ function PlantPage() {
         const handleMount = async () => {
             try {
                 const [{ data: plant }] = await Promise.all([
-                    axiosReq.get(`/plants/${id}`),
+                    axiosReq.get(`/plants/${id}`)
                 ]);
                 setPlant({ results: [plant] });
             } catch (err) {

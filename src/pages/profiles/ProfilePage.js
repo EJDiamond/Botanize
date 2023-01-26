@@ -100,11 +100,11 @@ function ProfilePage() {
                                 Follow
                             </Button>
                         ))}
-                        <div>
-                            <Link to="/plants/edit">
-                                <button>Plants</button>
-                            </Link>
-                        </div>
+                    <div>
+                        <Link to="/plants/create">
+                            <button>Plants</button>
+                        </Link>
+                    </div>
                 </Col>
             </Row>
         </>

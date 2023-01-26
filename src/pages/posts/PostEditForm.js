@@ -59,7 +59,7 @@ function PostEditForm() {
         const formData = new FormData();
 
         formData.append('plant', plant)
-        // formData.append('plant_type', plant_type)
+        formData.append('plant_type', plant_type)
         formData.append('question', question)
 
         if (imageInput?.current?.files[0]) {
@@ -100,13 +100,13 @@ function PostEditForm() {
             <Form.Group>
                 <Form.Label className="d-none">Plant Type</Form.Label>
                 <Form.Control as="select" name="plant_type" value={plant_type} onChange={handleChange} className={appStyles.Input}>
-                    <option>Palms</option>
-                    <option>Ferns</option>
-                    <option>Indoor Trees</option>
-                    <option>Cacti and Succulents</option>
-                    <option>Hydroculture</option>
-                    <option>Foliage plants</option>
-                    <option>Bonsai</option>
+                    <option value="palms">Palms</option>
+                    <option value="ferns">Ferns</option>
+                    <option value="indoor_trees">Indoor Trees</option>
+                    <option value="cacti_and_succulents">Cacti and Succulents</option>
+                    <option value="hydroculture">Hydroculture</option>
+                    <option value="foliage plants">Foliage plants</option>
+                    <option value="bonsai">Bonsai</option>
                 </Form.Control>
             </Form.Group>
             <Form.Group>

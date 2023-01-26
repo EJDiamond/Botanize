@@ -12,7 +12,7 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import PlantWhisperers from '../profiles/PlantWhisperers';
 
-function Plantspage({ filter = "", message }) {
+function PlantsPage({ filter = "", message }) {
     const [plants, setPlants] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
@@ -86,4 +86,4 @@ function Plantspage({ filter = "", message }) {
     )
 }
 
-export default Plantspage;
+export default PlantsPage;
