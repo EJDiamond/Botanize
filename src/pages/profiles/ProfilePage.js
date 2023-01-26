@@ -14,6 +14,7 @@ import Post from "../posts/Post";
 import { fetchMoreData } from '../../utils/utils';
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from '../../components/OptionDropdown';
+import { Link } from 'react-router-dom';
 
 
 
@@ -99,6 +100,11 @@ function ProfilePage() {
                                 Follow
                             </Button>
                         ))}
+                        <div>
+                            <Link to="/plants/edit">
+                                <button>Plants</button>
+                            </Link>
+                        </div>
                 </Col>
             </Row>
         </>
