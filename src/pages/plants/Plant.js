@@ -35,7 +35,7 @@ const Plant = (props) => {
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/plants/${id}/`);
-            history.goBack();
+            history.push('/plants/');
         } catch (err) {
             console.log(err);
         }

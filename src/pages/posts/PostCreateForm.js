@@ -105,7 +105,7 @@ function PostCreateForm() {
                     as="textarea"
                     rows={4}
                     name="question"
-                    placeholder='Ask your question here ...'
+                    placeholder='Ask your question here or let users help by simply providing an image.'
                     value={question}
                     onChange={handleChange}
                     className={appStyles.Textarea}
