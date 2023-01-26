@@ -70,7 +70,7 @@ export function ProfileEditDropdown({ id }) {
                     onClick={() => history.push(`/profiles/${id}/edit/password`)}
                     aria-label="edit-password"
                 >
-                    <i class="fa-solid fa-key"></i>
+                    <i className="fa-solid fa-key"></i>
                 </Dropdown.Item>
             </Dropdown.Menu>
         </Dropdown>

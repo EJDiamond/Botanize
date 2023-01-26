@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Media } from 'react-bootstrap';
+import { Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { axiosRes } from '../../api/axiosDefaults';
 import Avatar from '../../components/Avatar';
@@ -18,6 +18,8 @@ const Answer = (props) => {
         id,
         setPost,
         setAnswers,
+        like_id,
+        like_count,
     } = props;
 
     const currentUser = useCurrentUser();
@@ -67,6 +69,26 @@ const Answer = (props) => {
                     )}
 
                 </Media.Body>
+                <div className={styles.LikeIcon}>
+                    {is_owner ? (
+                        <OverlayTrigger placement='top' overlay={<Tooltip>You can't like your own answer</Tooltip>}>
+                            <i className='far fa-heart' />
+                        </OverlayTrigger>
+                    ) : like_id ? (
+                        <span onClick={() => { }}>
+                            <i className={`fas fa-heart ${styles.Heart}`} />
+                        </span>
+                    ) : currentUser ? (
+                        <span onClick={() => { }}>
+                            <i className={`far fa-heart ${styles.HeartOutline}`} />
+                        </span>
+                    ) : (
+                        <OverlayTrigger placement='top' overlay={<Tooltip>Log in to like answers!</Tooltip>}>
+                            <i className='far fa-heart' />
+                        </OverlayTrigger>
+                    )}
+                    {like_count}
+                </div>
                 {is_owner && !showEditForm && (
                     <OptionDropdown
                         handleEdit={() => setShowEditForm(true)}

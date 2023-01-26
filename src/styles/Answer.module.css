@@ -12,3 +12,22 @@
 .Line {
     background-color: #D2C487;
 }
+
+.Heart {
+    color: #314F28;
+    font-size: smaller;
+}
+
+.Heart:hover {
+    color: #5D7736;
+}
+
+.HeartOutline {
+    color: #314F28;
+    font-size: smaller;
+}
+
+.LikeIcon {
+    margin-right: 15px;
+    font-size: smaller;
+}
