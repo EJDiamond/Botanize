@@ -26,6 +26,22 @@ const Answer = (props) => {
     const is_owner = currentUser?.username === owner;
     const [showEditForm, setShowEditForm] = useState(false);
 
+    const handleLike = async () => {
+        try {
+            const { data } = await axiosRes.post("/likes/", { answer: id });
+            setAnswers((prevAnswer) => ({
+                ...prevAnswer,
+                results: prevAnswer.results.map((answer) => {
+                    return answer.id === id
+                        ? { ...answer, like_count: answer.like_count + 1, like_id: data.id }
+                        : answer;
+                })
+            }))
+        } catch (err) {
+            console.log(err)
+        }
+    };
+
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/answers/${id}`);
@@ -79,7 +95,7 @@ const Answer = (props) => {
                             <i className={`fas fa-heart ${styles.Heart}`} />
                         </span>
                     ) : currentUser ? (
-                        <span onClick={() => { }}>
+                        <span onClick={handleLike}>
                             <i className={`far fa-heart ${styles.HeartOutline}`} />
                         </span>
                     ) : (
