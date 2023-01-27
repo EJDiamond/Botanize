@@ -31,7 +31,7 @@ function Postspage({ filter = "", message }) {
                 setPosts(data)
                 setHasLoaded(true)
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         };
         setHasLoaded(false)

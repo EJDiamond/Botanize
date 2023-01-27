@@ -38,7 +38,7 @@ const Answer = (props) => {
                 })
             }))
         } catch (err) {
-            console.log(err)
+            // console.log(err)
         }
     };
 
@@ -54,7 +54,7 @@ const Answer = (props) => {
                 }),
             }));
         } catch(err) {
-            console.log(err)
+            // console.log(err)
         }
     };
 

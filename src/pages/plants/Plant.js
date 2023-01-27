@@ -39,7 +39,7 @@ const Plant = (props) => {
             await axiosRes.delete(`/plants/${id}/`);
             history.push('/plants/');
         } catch (err) {
-            console.log(err);
+            // console.log(err);
         }
     };
 

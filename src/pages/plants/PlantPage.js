@@ -26,7 +26,7 @@ function PlantPage() {
                 ]);
                 setPlant({ results: [plant] });
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         };
         handleMount();

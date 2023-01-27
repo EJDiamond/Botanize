@@ -38,7 +38,7 @@ function PlantEditForm() {
                 const { plant_name, plant_type, image, age, about, is_owner } = data;
                 is_owner ? setPlantData({ plant_name, plant_type, image, age, about }) : history.push('/plants/');
             } catch (err) {
-                console.log(err);
+                // console.log(err);
             }
         };
         handleMount();
@@ -81,7 +81,7 @@ function PlantEditForm() {
             await axiosReq.put(`/plants/${id}`, formData);
             history.push(`/plants/${id}`)
         } catch (err) {
-            console.log(err)
+            // console.log(err)
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data)
             }

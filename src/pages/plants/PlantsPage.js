@@ -30,7 +30,7 @@ function PlantsPage({ filter = "", message }) {
                 setPlants(data)
                 setHasLoaded(true)
             } catch (err) {
-                console.log(err)
+                // console.log(err)
             }
         };
         setHasLoaded(false)
