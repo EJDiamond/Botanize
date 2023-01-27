@@ -18,6 +18,7 @@ import PlantCreateForm from './pages/plants/PlantCreateForm';
 import PlantPage from './pages/plants/PlantPage';
 import PlantsPage from './pages/plants/PlantsPage';
 import PlantEditForm from './pages/plants/PlantEditForm';
+import NotFound from './components/NotFound';
 
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
               <Route exact path="/plants/:id" render={() => <PlantPage />} />
               <Route exact path="/plants/" render={() => <PlantsPage />} />
               <Route exact path="/plants/:id/edit" render={() => <PlantEditForm />} />
-              <Route render={() => <p>Page not found!</p>} />
+              <Route render={() => <NotFound />} />
             </Switch>
           </Container>
         </div>
