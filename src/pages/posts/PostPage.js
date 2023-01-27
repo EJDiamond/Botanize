@@ -31,7 +31,7 @@ function PostPage() {
             try {
                 const [{ data: post }, { data: answers }] = await Promise.all([
                     axiosReq.get(`/posts/${id}`),
-                    axiosReq.get(`/answers/?ordering=-like_count?post=${id}`)
+                    axiosReq.get(`/answers/?post=${id}`)
                 ]);
                 setPost({ results: [post] });
                 setAnswers(answers);
