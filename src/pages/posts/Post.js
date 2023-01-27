@@ -20,6 +20,7 @@ const Post = (props) => {
         answer_count,
         plant,
         plant_type,
+        plant_type_display,
         image,
         question,
         updated_at,
@@ -126,7 +127,7 @@ const Post = (props) => {
                 <br />
                 <br />
                 {plant && <Card.Text className='text-left'><strong>Plant: </strong>{plant}</Card.Text>}
-                {plant_type && <Card.Text><strong>Plant type: </strong>{plant_type}</Card.Text>}
+                {plant_type && <Card.Text><strong>Plant type: </strong>{plant_type_display}</Card.Text>}
                 {question && <Card.Text className={styles.Cardtext}><strong>Question: </strong>{question}</Card.Text>}
             </Card.Body>
             <hr className={styles.Line} />

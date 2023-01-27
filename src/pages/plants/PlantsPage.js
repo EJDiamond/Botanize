@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Container, Image, Row } from 'react-bootstrap'
-import { useLocation } from 'react-router-dom';
+import { Col, Container, Image, OverlayTrigger, Row, Tooltip } from 'react-bootstrap'
+import { Link, useLocation } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 
+import btnStyles from '../../styles/Button.module.css';
 import appStyles from "../../App.module.css";
 import NoResults from "../../assets/no-results.png";
 import Plant from './Plant';
@@ -44,6 +45,15 @@ function PlantsPage({ filter = "", message }) {
                 <PlantWhisperers mobile />
                 <div className={`${appStyles.Content} ${appStyles.Header} text-center mb-2`}>
                     <strong>Plants from the community</strong>
+                    <div>
+                        <Link to="/plants/create">
+                            <button className={btnStyles.LeafButton}>
+                                <OverlayTrigger placement='bottom' overlay={<Tooltip>Add plants</Tooltip>}>
+                                    <i className={`fa-solid fa-leaf ${btnStyles.LeafIcon}`}></i>
+                                </OverlayTrigger>
+                            </button>
+                        </Link>
+                    </div>
                 </div>
 
                 {hasLoaded ? (

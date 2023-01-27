@@ -13,23 +13,6 @@
     background-color: #D2C487;
 }
 
-.Button {
-    background-color: #314F28;
-    border-radius: 50%;
-    border: none;
-}
-
-.Button:hover {
-    background-color: #EFE9CE;
-    border: #314F28 solid 2px;
-}
-
-.Icon {
-    color: #EFE9CE;
-    padding: 2px;
-    font-size: 0.9rem;
-}
-
 .Icon:hover {
     color: #314F28;
 }

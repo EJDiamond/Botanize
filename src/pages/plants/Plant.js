@@ -17,6 +17,7 @@ const Plant = (props) => {
         profile_image,
         plant_name,
         plant_type,
+        plant_type_display,
         image,
         age,
         about,
@@ -68,7 +69,7 @@ const Plant = (props) => {
                 <br />
                 <br />
                 {plant_name && <Card.Text className='text-left'><strong>Plant: </strong>{plant_name}</Card.Text>}
-                {plant_type && <Card.Text><strong>Plant type: </strong>{plant_type}</Card.Text>}
+                {plant_type && <Card.Text><strong>Plant type: </strong>{plant_type_display}</Card.Text>}
                 {age && <Card.Text className={styles.Cardtext}><strong>Age: </strong>{age}</Card.Text>}
                 {about && <Card.Text className={styles.Cardtext}><strong>About: </strong>{about}</Card.Text>}
             </Card.Body>

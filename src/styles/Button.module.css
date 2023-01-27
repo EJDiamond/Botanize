@@ -53,3 +53,20 @@
     min-width: 70px;
     border: none;
 }
+
+.LeafButton {
+    background-color: #314F28;
+    border-radius: 70%;
+    border: none;
+}
+
+.LeafButton:hover {
+    background-color: #EFE9CE;
+    border: #314F28 solid 2px;
+}
+
+.LeafIcon {
+    color: #EFE9CE;
+    padding: 2px;
+    font-size: 0.9rem;
+}

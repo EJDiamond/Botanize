@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Col, Image, Row, Button, Container } from 'react-bootstrap';
+import { Col, Image, Row, Button, Container} from 'react-bootstrap';
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from '../../styles/ProfilePage.module.css'
 import btnStyles from '../../styles/Button.module.css';
@@ -14,7 +14,7 @@ import Post from "../posts/Post";
 import { fetchMoreData } from '../../utils/utils';
 import NoResults from "../../assets/no-results.png";
 import { ProfileEditDropdown } from '../../components/OptionDropdown';
-import { Link } from 'react-router-dom';
+
 
 
 
@@ -81,15 +81,6 @@ function ProfilePage() {
                     </Row>
                     <Row className='justify-content-center no-gutters'>
                         {profile?.bio && (<Col className='p-3'>{profile.bio}</Col>)}
-                    </Row>
-                    <Row className='justify-content-center no-gutters'>
-                        <div>
-                            <Link to="/plants/create">
-                                <button className={styles.Button}>
-                                    <i className={`fa-solid fa-leaf ${styles.Icon}`}></i>
-                                </button>
-                            </Link>
-                        </div>
                     </Row>
                 </Col>
                 <Col lg={2} className='mt-2'>
