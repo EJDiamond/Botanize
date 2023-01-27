@@ -1,5 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { Col, Container, Form, Image, Row } from 'react-bootstrap'
+import React, { useEffect, useState } from 'react';
+
+import Form from "react-bootstrap/Form";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+
 import { useLocation } from 'react-router-dom';
 import { axiosReq } from '../../api/axiosDefaults';
 

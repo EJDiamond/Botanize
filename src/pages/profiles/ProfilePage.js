@@ -1,5 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import { Col, Image, Row, Button, Container} from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+import Button from 'react-bootstrap/Button';
+
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from '../../styles/ProfilePage.module.css'
 import btnStyles from '../../styles/Button.module.css';

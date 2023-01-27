@@ -1,10 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Button, Col, Container, Form, Row, Alert } from 'react-bootstrap'
+
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
 
 import styles from "../../styles/PostPlantCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { Image } from "react-bootstrap";
 import { useHistory, useParams } from 'react-router-dom';
 import { axiosReq } from "../../api/axiosDefaults";
 
