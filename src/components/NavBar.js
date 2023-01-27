@@ -7,6 +7,7 @@ import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContex
 import Avatar from './Avatar';
 import axios from 'axios';
 import useClickOutsideToggle from '../hooks/useClickOutsideToggle';
+import { removeTokenTimestamp } from '../utils/utils';
 
 const NavBar = () => {
     const currentUser = useCurrentUser();
@@ -17,6 +18,7 @@ const NavBar = () => {
         try {
             await axios.post("dj-rest-auth/logout/");
             setCurrentUser(null);
+            removeTokenTimestamp();
         } catch (err) {
             console.log(err);
         }
@@ -66,7 +68,7 @@ const NavBar = () => {
                             <i className="fa-solid fa-house-chimney"></i> Home
                         </NavLink>
                         <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/plants">
-                        <i className="fa-solid fa-leaf"></i> Plants
+                            <i className="fa-solid fa-leaf"></i> Plants
                         </NavLink>
                         {currentUser ? loggedInIcons : loggedOutIcons}
                     </Nav>
