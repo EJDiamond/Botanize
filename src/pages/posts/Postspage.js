@@ -17,12 +17,14 @@ import Asset from '../../components/Asset';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { fetchMoreData } from '../../utils/utils';
 import PlantWhisperers from '../profiles/PlantWhisperers';
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function Postspage({ filter = "", message }) {
     const [posts, setPosts] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
     const [query, setQuery] = useState("");
+    const currentUser = useCurrentUser();
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -41,7 +43,7 @@ function Postspage({ filter = "", message }) {
         return () => {
             clearTimeout(timer);
         }
-    }, [filter, query, pathname]);
+    }, [filter, query, pathname, currentUser]);
 
     return (
         <Row className='h-100'>
