@@ -29,20 +29,20 @@ function Postspage({ filter = "", message }) {
     useEffect(() => {
         const fetchPosts = async () => {
             try {
-                const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`)
-                setPosts(data)
-                setHasLoaded(true)
+                const { data } = await axiosReq.get(`/posts/?${filter}search=${query}`);
+                setPosts(data);
+                setHasLoaded(true);
             } catch (err) {
                 // console.log(err)
             }
         };
-        setHasLoaded(false)
+        setHasLoaded(false);
         const timer = setTimeout(() => {
             fetchPosts();
-        }, 1000)
+        }, 1000);
         return () => {
             clearTimeout(timer);
-        }
+        };
     }, [filter, query, pathname, currentUser]);
 
     return (

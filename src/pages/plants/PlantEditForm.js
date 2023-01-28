@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -34,7 +34,7 @@ function PlantEditForm() {
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const { data } = await axiosReq.get(`/plants/${id}`)
+                const { data } = await axiosReq.get(`/plants/${id}`);
                 const { plant_name, plant_type, image, age, about, is_owner } = data;
                 is_owner ? setPlantData({ plant_name, plant_type, image, age, about }) : history.push('/plants/');
             } catch (err) {
@@ -60,26 +60,25 @@ function PlantEditForm() {
             });
         }
     };
-    // Function to handle form submission sending data to the API
     const handleSubmit = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
         const formData = new FormData();
 
-        formData.append('plant_name', plant_name)
-        formData.append('plant_type', plant_type)
-        formData.append('image', imageInput.current.files[0])
-        formData.append('age', age)
-        formData.append('about', about)
+        formData.append('plant_name', plant_name);
+        formData.append('plant_type', plant_type);
+        formData.append('image', imageInput.current.files[0]);
+        formData.append('age', age);
+        formData.append('about', about);
 
         if (imageInput?.current?.files[0]) {
-            formData.append('image', imageInput.current.files[0])
+            formData.append('image', imageInput.current.files[0]);
         }
 
 
 
         try {
             await axiosReq.put(`/plants/${id}`, formData);
-            history.push(`/plants/${id}`)
+            history.push(`/plants/${id}`);
         } catch (err) {
             // console.log(err)
             if (err.response?.status !== 401) {

@@ -7,7 +7,7 @@ import Image from "react-bootstrap/Image";
 import Button from 'react-bootstrap/Button';
 
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from '../../styles/ProfilePage.module.css'
+import styles from '../../styles/ProfilePage.module.css';
 import btnStyles from '../../styles/Button.module.css';
 import appStyles from "../../App.module.css";
 import PlantWhisperers from './PlantWhisperers';
@@ -44,15 +44,15 @@ function ProfilePage() {
                 setProfileData(prevState => ({
                     ...prevState,
                     pageProfile: { results: [pageProfile] }
-                }))
+                }));
                 setProfilePosts(profilePosts);
                 setHasLoaded(true);
             } catch (err) {
                 // console.log(err)
             }
-        }
+        };
         fetchData();
-    }, [id, setProfileData])
+    }, [id, setProfileData]);
 
     const userProfile = (
         <>

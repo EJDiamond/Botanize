@@ -59,7 +59,7 @@ export const ProfileDataProvider = ({ children }) => {
         } catch (err) {
             // console.log(err)
         }
-    }
+    };
 
 
     useEffect(() => {
@@ -76,7 +76,7 @@ export const ProfileDataProvider = ({ children }) => {
                 // console.log(err)
             }
         };
-        handleMount()
+        handleMount();
     }, [currentUser]);
 
     return (

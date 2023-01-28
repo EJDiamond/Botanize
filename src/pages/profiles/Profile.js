@@ -1,7 +1,7 @@
 import btnStyles from '../../styles/Button.module.css';
 import styles from '../../styles/Profile.module.css';
 
-import React from 'react'
+import React from 'react';
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import { Link } from 'react-router-dom';
 import Avatar from '../../components/Avatar';

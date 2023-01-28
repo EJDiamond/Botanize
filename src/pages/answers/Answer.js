@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { axiosRes } from '../../api/axiosDefaults';
@@ -36,7 +36,7 @@ const Answer = (props) => {
                         ? { ...answer, like_count: answer.like_count + 1, like_id: data.id }
                         : answer;
                 })
-            }))
+            }));
         } catch (err) {
             // console.log(err)
         }

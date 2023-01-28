@@ -7,12 +7,12 @@ import { removeTokenTimestamp, shouldRefreshToken } from '../utils/utils';
 export const CurrentUserContext = createContext();
 export const SetCurrentUserContext = createContext();
 
-export const useCurrentUser = () => useContext(CurrentUserContext)
-export const useSetCurrentUser = () => useContext(SetCurrentUserContext)
+export const useCurrentUser = () => useContext(CurrentUserContext);
+export const useSetCurrentUser = () => useContext(SetCurrentUserContext);
 
 export const CurrentUserProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
-    const history = useHistory()
+    const history = useHistory();
 
     const handleMount = async () => {
         try {
@@ -39,7 +39,7 @@ export const CurrentUserProvider = ({ children }) => {
                             if (prevCurrentUser) {
                                 history.push("/signin");
                             }
-                            return null
+                            return null;
                         });
                         removeTokenTimestamp();
                         return config;
@@ -50,7 +50,7 @@ export const CurrentUserProvider = ({ children }) => {
             (err) => {
                 return Promise.reject(err);
             }
-        )
+        );
         axiosRes.interceptors.response.use(
             (response) => response,
             async (err) => {
@@ -60,18 +60,18 @@ export const CurrentUserProvider = ({ children }) => {
                     } catch(err){
                         setCurrentUser(prevCurrentUser => {
                             if (prevCurrentUser){
-                                history.push('/signin')
+                                history.push('/signin');
                             }
-                            return null
+                            return null;
                         });
                         removeTokenTimestamp();
                     }
-                    return axios(err.config)
+                    return axios(err.config);
                 }
-                return Promise.reject(err)
+                return Promise.reject(err);
             }
-        )
-    }, [history])
+        );
+    }, [history]);
 
     return (
         <CurrentUserContext.Provider value={currentUser}>

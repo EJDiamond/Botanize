@@ -1,13 +1,13 @@
-import React from 'react'
-import Media from 'react-bootstrap/Media'
-import Card from 'react-bootstrap/Card'
-import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-import { axiosRes } from '../../api/axiosDefaults'
-import Avatar from '../../components/Avatar'
-import { OptionDropdown } from '../../components/OptionDropdown'
-import { useCurrentUser } from '../../contexts/CurrentUserContext'
-import styles from "../../styles/PostPlant.module.css"
+import React from 'react';
+import Media from 'react-bootstrap/Media';
+import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { axiosRes } from '../../api/axiosDefaults';
+import Avatar from '../../components/Avatar';
+import { OptionDropdown } from '../../components/OptionDropdown';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import styles from "../../styles/PostPlant.module.css";
 
 
 const Plant = (props) => {
@@ -24,15 +24,15 @@ const Plant = (props) => {
         about,
         updated_at,
         plantPage,
-    } = props
+    } = props;
 
     const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === owner
+    const is_owner = currentUser?.username === owner;
     const history = useHistory();
 
     const handleEdit = () => {
-        history.push(`/plants/${id}/edit`)
-    }
+        history.push(`/plants/${id}/edit`);
+    };
 
     const handleDelete = async () => {
         try {

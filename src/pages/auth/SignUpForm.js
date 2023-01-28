@@ -17,7 +17,7 @@ import axios from "axios";
 import { useRedirect } from "../../hooks/useRedirect";
 
 const SignUpForm = () => {
-    useRedirect('loggedIn')
+    useRedirect('loggedIn');
     const [signUpData, setSignUpData] = useState({
         username: '',
         password1: '',
@@ -37,8 +37,8 @@ const SignUpForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await axios.post('/dj-rest-auth/registration/', signUpData)
-            history.push('/signin')
+            await axios.post('/dj-rest-auth/registration/', signUpData);
+            history.push('/signin');
         } catch (err) {
             setErrors(err.response?.data);
         }

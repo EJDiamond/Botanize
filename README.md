@@ -2,8 +2,9 @@
 
 For my project five milestone, I have created the social platform Botanize, the site offers a space where plant owners can come to share images and problems they are facing with their plants, so other users can answer and help them with tips and solutions. Alongside this, users can upload images and content about their favourite plants for others to view.
 
-[View live project](https://botanize.herokuapp.com/)
-
+- [View live project](https://botanize.herokuapp.com/)
+- [Deployed API](https://botanize-api.herokuapp.com/)
+- [Backend Repository](https://github.com/EJDiamond/drf-api-botanize)
 
 ![Responsive image](/src/assets/responsive.png)
 
@@ -89,7 +90,7 @@ I chose the two fonts Merriweather Sans and Annie use your telescope:
 
 ### Wirefames
 
-![Wireframes]()
+![Wireframes](/src/assets/wireframes.png)
 
 ### Database Schema
 
@@ -228,6 +229,10 @@ A combination of both manual and automated testing has been used to check the we
 
 ## Code Validation
 
+#### - __JSHint__
+- All javascript files pass through JSHint showing no errors, an example of this is shown below using ```App.js```
+![JSHint Testing](/src/assets/testing/jshint.png)
+
 #### - __W3C CSS Validation Service__
 
 - Used to validate the css code used in the website.
@@ -252,11 +257,11 @@ I have tested this code myself on multiple screen sizes as well as asking friend
 | **Test**                               | **User Story**                                                                                                                           | **Pass/Fail**                                                                                                                                    |
 |----------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 1. Navigation                          | As a user I can view the navbar from every page so that I can navigate the site easily.                                                  | [Pass](https://github.com/EJDiamond/botanize/blob/4e9d4f5faf88c2f1a0f58bfffdb6111e44da9c57/src/assets/testing/test-navbar.png)                   |
-| 2: Routing                             | As a user I can navigate through pages quickly so that I can view content seamlessly  without page refresh.                              | [Pass]                                                                                                                                           |
+| 2: Routing                             | As a user I can navigate through pages quickly so that I can view content seamlessly  without page refresh.                              | Pass                                                                                                                                           |
 | 3. Sign up                             | As a user I can create a new account so that I can access all the features for signed up users.                                          | [Pass](https://github.com/EJDiamond/botanize/blob/4e9d4f5faf88c2f1a0f58bfffdb6111e44da9c57/src/assets/testing/test-signup.png)                   |
 | 4. Sign In                             | As a user I can sign in to the app so that I can access functionality for logged in users.                                               | [Pass]( https://github.com/EJDiamond/botanize/blob/4e9d4f5faf88c2f1a0f58bfffdb6111e44da9c57/src/assets/testing/test-signin.png)                  |
 | 5. Logged-in status                    | As a user I can tell if I am logged-in or not so that I can log in if I need to.                                                         | [Pass](https://github.com/EJDiamond/botanize/blob/4e9d4f5faf88c2f1a0f58bfffdb6111e44da9c57/src/assets/testing/test-signedin.png)                 |
-| 6. Refreshing access    tokens         | As a user I can maintain my logged-in status until I choose to log out so that my user  experience is not compromised.                   | [Pass]                                                                                                                                           |
+| 6. Refreshing access    tokens         | As a user I can maintain my logged-in status until I choose to log out so that my user  experience is not compromised.                   | Pass                                                                                                                                           |
 | 7. Conditional     rendering           | As a logged out user I can see sign in and sign up options so that I can sign in/sign up.                                                | [Pass](https://github.com/EJDiamond/botanize/blob/4e9d4f5faf88c2f1a0f58bfffdb6111e44da9c57/src/assets/testing/test-conditional-rendering.png)    |
 | 8. Avatar                              | As a user I can view user's avatars so that other users can be easily identified.                                                        | [Pass](https://github.com/EJDiamond/botanize/blob/4e9d4f5faf88c2f1a0f58bfffdb6111e44da9c57/src/assets/testing/test-avatar.png)                   |
 | 9. Create post                         | As a user I can create a post so that other users can help me identify issues with my plant.                                             | [Pass](https://github.com/EJDiamond/botanize/blob/4e9d4f5faf88c2f1a0f58bfffdb6111e44da9c57/src/assets/testing/test-create-post.png)              |
@@ -287,24 +292,50 @@ I have tested this code myself on multiple screen sizes as well as asking friend
 
 ## Bugs and Fixes
 
-
-
-# Credits
-
-During the development of my project I used a number of resources to help me tackle problems and fix bugs.
-
-
-
-[Sourced Images - Unsplash](https://unsplash.com/)
-
+- There was an issue with my plants_type field not showing the human friendly value so I add a serialiser to use in my post and plant forms to remedy this.
+- There was a problem with the user being able to log out, fixed by adding at logout view in the API.
 
 # Deployment
 
-## Github and Gitpod
+Botanize was deployed using Heroku, following the steps below:
+
+1. Create and launch Gitpod workspace.
+2. Install ReactJS:
+    ```
+    npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm
+    npm start
+    ```
 
 
-## Heroku
+3. Install the relevant packages using ```npm install```
+    ```
+    react-bootstrap@1.6.3 bootstrap@4.6.0
+    react-router-dom@5.3.0
+    axios
+    react-infinite-scroll-component
+    msw --save-dev
+    jwt-decode
+    ```
+4. Save changes by using git add, commit and push.
+5. Create a repository (ensuring the name is lower case), select the Gitpod button to create the workspace.
+6. Connect to the API by navigating to the Heroku app for the DRF-API and under settings, config vars at the following  (ensuring the trailing slash has been remove on each):
+    Key - CLIENT_ORIGIN         Value - https://botanize.herokuapp.com
+    key - CLIENT_ORIGIN_DEV     Value - https://3000-ejdiamond-botanize-8eox21ff9a5.ws-eu83.gitpod.io
+7. Add axiosDefaults.js to connect to the backend.
+8. In the ```scripts``` section of ```package.json`` add the following:
+    ```"heroku-prebuild": "npm install -g serve",```
+9. Add a Procfile to the root of the app and add:
+    ```
+    web: serve -s build
+    ```
+10. Save changes by using git add, commit and push.
+11. Deploy using the deploy button on Heroku.
+
+# Credits
+
+- Botanize was created following the Code Institute [Moments walkthrough](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+RA101+2021_T3/courseware/70a8c55db0504bbdb5bcc3bfcf580080/953cd4e5015f483bb05263db3e740e19/) project and building on it to customise and make it my own.
+- [Sourced Images - Unsplash](https://unsplash.com/)
 
 # Acknowledgements
 
-I would like to thanks my mentor Naoise Gaffney for his constant support throughout my project.
+I would like to thank my mentor Naoise Gaffney for his constant support throughout my project.

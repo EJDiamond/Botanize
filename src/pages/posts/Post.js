@@ -1,12 +1,12 @@
-import React from 'react'
-import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
-import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
-import { axiosRes } from '../../api/axiosDefaults'
-import Avatar from '../../components/Avatar'
-import { OptionDropdown } from '../../components/OptionDropdown'
-import { useCurrentUser } from '../../contexts/CurrentUserContext'
-import styles from "../../styles/PostPlant.module.css"
+import React from 'react';
+import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { axiosRes } from '../../api/axiosDefaults';
+import Avatar from '../../components/Avatar';
+import { OptionDropdown } from '../../components/OptionDropdown';
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import styles from "../../styles/PostPlant.module.css";
 
 
 const Post = (props) => {
@@ -26,15 +26,15 @@ const Post = (props) => {
         updated_at,
         postPage,
         setPosts,
-    } = props
+    } = props;
 
     const currentUser = useCurrentUser();
-    const is_owner = currentUser?.username === owner
+    const is_owner = currentUser?.username === owner;
     const history = useHistory();
 
     const handleEdit = () => {
-        history.push(`/posts/${id}/edit`)
-    }
+        history.push(`/posts/${id}/edit`);
+    };
 
     const handleDelete = async () => {
         try {
@@ -59,7 +59,7 @@ const Post = (props) => {
         } catch (err) {
             // console.log(err);
         }
-    }
+    };
 
     const handleDeleteBookmark = async () => {
         try {
@@ -75,7 +75,7 @@ const Post = (props) => {
         } catch (err) {
             // console.log(err);
         }
-    }
+    };
 
     return (
         <Card className={styles.Post}>

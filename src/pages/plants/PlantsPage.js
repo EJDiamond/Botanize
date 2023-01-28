@@ -26,9 +26,9 @@ function PlantsPage({ filter = "", message }) {
     useEffect(() => {
         const fetchPlants = async () => {
             try {
-                const { data } = await axiosReq.get(`/plants/`)
-                setPlants(data)
-                setHasLoaded(true)
+                const { data } = await axiosReq.get(`/plants/`);
+                setPlants(data);
+                setHasLoaded(true);
             } catch (err) {
                 // console.log(err)
             }
@@ -36,10 +36,10 @@ function PlantsPage({ filter = "", message }) {
         setHasLoaded(false)
         const timer = setTimeout(() => {
             fetchPlants();
-        }, 1000)
+        }, 1000);
         return () => {
             clearTimeout(timer);
-        }
+        };
     }, [pathname]);
 
     return (

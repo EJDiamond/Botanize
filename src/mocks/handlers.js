@@ -1,6 +1,6 @@
 import { rest } from "msw";
 
-const baseURL = "https://botanize-api.herokuapp.com/"
+const baseURL = "https://botanize-api.herokuapp.com/";
 
 export const handlers = [
     rest.get(`${baseURL}dj-rest-auth/user/`, (req, res, ctx) => {

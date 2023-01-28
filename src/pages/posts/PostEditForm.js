@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react';
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -33,7 +33,7 @@ function PostEditForm() {
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const { data } = await axiosReq.get(`/posts/${id}`)
+                const { data } = await axiosReq.get(`/posts/${id}`);
                 const { plant, plant_type, image, question, is_owner } = data;
                 is_owner ? setPostData({ plant, plant_type, image, question }) : history.push('/');
             } catch (err) {
@@ -61,29 +61,29 @@ function PostEditForm() {
     };
     // Function to handle form submission sending data to the API
     const handleSubmit = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
         const formData = new FormData();
 
-        formData.append('plant', plant)
-        formData.append('plant_type', plant_type)
-        formData.append('question', question)
+        formData.append('plant', plant);
+        formData.append('plant_type', plant_type);
+        formData.append('question', question);
 
         if (imageInput?.current?.files[0]) {
-            formData.append('image', imageInput.current.files[0])
+            formData.append('image', imageInput.current.files[0]);
         }
 
 
 
         try {
             await axiosReq.put(`/posts/${id}`, formData);
-            history.push(`/posts/${id}`)
+            history.push(`/posts/${id}`);
         } catch (err) {
             // console.log(err)
             if (err.response?.status !== 401) {
-                setErrors(err.response?.data)
+                setErrors(err.response?.data);
             }
         }
-    }
+    };
 
     const plantFields = (
         <div className='text-center'>
