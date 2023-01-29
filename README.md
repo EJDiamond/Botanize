@@ -29,6 +29,7 @@ For my project five milestone, I have created the social platform Botanize, the 
 4. [Technologies Used](#technologies-used)
     - [Main Languages](#main-languages)
     - [Frameworks Libraries & Programs Used](#frameworks-libraries-and-programs-used)
+    - [React Library Benefits](#react-library-benefits)
 5. [Components](#components)
 6. [Testing](#testing)
     - [Validator testing](#validator-testing)
@@ -211,6 +212,10 @@ My user stories can be found [here](https://github.com/users/EJDiamond/projects/
     - Used to get fonts for the project.
 - [AmIResponsive](https://ui.dev/amiresponsive)
     - Used to create image to show the site is responsive
+
+## React Library Benefits
+
+The data rendering feature of the React library creates an improved user experience by allowing the user to move through the site more efficiently. The data is fetched and updated without refreshing the page each time a user clicks or scrolls, making for a smoother, more enjoyable user experience.
 
 # Components
 
